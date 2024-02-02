@@ -1,9 +1,9 @@
-import java.util.Stack;
-
 public class POSFIXCalc {
 
     public int calcularExpresion(String expresion) {
-        Stack<Integer> UVG_Stack = new Stack<>();
+        int capacidadInicial = contarElementos(expresion);
+        UVG_Stack UVG_Stack = new UVG_Stack(capacidadInicial);
+
         String[] tokens = expresion.split(" ");
 
         for (String token : tokens) {
@@ -26,6 +26,7 @@ public class POSFIXCalc {
                     case "/":
                         UVG_Stack.push(operand1 / operand2);
                         break;
+                    
                 }
             }
         }
@@ -40,5 +41,10 @@ public class POSFIXCalc {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    private int contarElementos(String expresion) {
+        String[] tokens = expresion.split(" ");
+        return tokens.length;
     }
 }
