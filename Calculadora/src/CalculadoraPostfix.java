@@ -8,7 +8,6 @@ public class CalculadoraPostfix {
         try {
             
             String rutaArchivo = "datos.txt";
-
             BufferedReader br = new BufferedReader(new FileReader(rutaArchivo));
             String expresion = br.readLine();
             br.close();
